@@ -4,7 +4,9 @@ void main() {
   runApp(const MyApp());
 }
 
+/// アプリのベースになる Widget
 class MyApp extends StatelessWidget {
+  /// コンストラクタ
   const MyApp({super.key});
 
   @override
@@ -20,9 +22,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// ホーム画面
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  /// コンストラクタ
+  const MyHomePage({required this.title, super.key});
 
+  /// 画面タイトル
   final String title;
 
   @override
