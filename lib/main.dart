@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_platform/map_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,9 +43,23 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: SafeArea(
-          child: Center(),
+          child: Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const MapView(),
+                  ),
+                );
+              },
+              child: const Text(
+                '地図表示',
+              ),
+            ),
+          ),
         ),
       ),
     );

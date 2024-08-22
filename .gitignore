@@ -44,3 +44,6 @@ app.*.map.json
 
 # FVM Version Cache
 .fvm/
+
+ios/Runner/Environment.swift
+android/secret.properties
