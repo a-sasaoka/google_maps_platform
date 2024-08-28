@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:google_maps_platform/map_view.dart';
 
 void main() {
@@ -45,20 +46,25 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (context) => const MapView(),
+          child: Column(
+            children: [
+              const Gap(16),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (context) => const MapView(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    '地図表示',
                   ),
-                );
-              },
-              child: const Text(
-                '地図表示',
+                ),
               ),
-            ),
+            ],
           ),
         ),
       ),
