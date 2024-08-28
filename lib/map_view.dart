@@ -38,6 +38,18 @@ class _MapViewState extends State<MapView> {
                   zoom: 15,
                 ),
                 onMapCreated: _controller.complete,
+                markers: {
+                  Marker(
+                    markerId: const MarkerId('marker_1'),
+                    icon: BitmapDescriptor.defaultMarkerWithHue(
+                        BitmapDescriptor.hueBlue),
+                    position: _center,
+                    infoWindow: const InfoWindow(
+                      title: '現在位置（title）',
+                      snippet: '現在位置（snippet）',
+                    ),
+                  ),
+                },
               ),
             ),
             const Gap(16),
