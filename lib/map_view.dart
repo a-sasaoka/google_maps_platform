@@ -42,7 +42,8 @@ class _MapViewState extends State<MapView> {
                   Marker(
                     markerId: const MarkerId('marker_1'),
                     icon: BitmapDescriptor.defaultMarkerWithHue(
-                        BitmapDescriptor.hueBlue),
+                      BitmapDescriptor.hueBlue,
+                    ),
                     position: _center,
                     infoWindow: const InfoWindow(
                       title: '現在位置（title）',
