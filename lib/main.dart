@@ -1,6 +1,15 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
-void main() {
+import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:gap/gap.dart';
+import 'package:google_maps_platform/map_view.dart';
+import 'package:google_maps_platform/place_view.dart';
+
+Future<void> main() async {
+  await dotenv.load();
+  log(dotenv.get('apiKey'));
+
   runApp(const MyApp());
 }
 
@@ -42,9 +51,44 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: SafeArea(
-          child: Center(),
+          child: Column(
+            children: [
+              const Gap(16),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (context) => const MapView(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    '地図表示',
+                  ),
+                ),
+              ),
+              const Gap(16),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (context) => const PlaceView(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    '場所検索',
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -5,6 +5,14 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 
+def secretProperties = new Properties()
+def secretPropertiesFile = rootProject.file('secret.properties')
+if (secretPropertiesFile.exists()) {
+    secretPropertiesFile.withReader('UTF-8') { reader ->
+        secretProperties.load(reader)
+    }
+}
+
 android {
     namespace = "com.example.google_maps_platform"
     compileSdk = flutter.compileSdkVersion
@@ -24,10 +32,14 @@ android {
         applicationId = "com.example.google_maps_platform"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = 20
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        manifestPlaceholders += [
+           googleMapApiKey: secretProperties.getProperty('googleMap.apiKey'),
+        ]
     }
 
     buildTypes {
