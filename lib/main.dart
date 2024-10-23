@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   },
                   child: const Text(
-                    '地図表示',
+                    '現在位置の地図表示',
                   ),
                 ),
               ),
