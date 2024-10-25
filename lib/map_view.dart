@@ -37,9 +37,6 @@ class _MapViewState extends State<MapView> {
 
   /// 位置情報を取得する
   Future<LatLng> _getCurrentLocation() async {
-    /// わざと少し待つ（動作をわかりやすくするため）
-    await Future.delayed(const Duration(seconds: 1), () {});
-
     final position = await Geolocator.getCurrentPosition();
     return LatLng(position.latitude, position.longitude);
   }
@@ -150,7 +147,7 @@ class _MapViewState extends State<MapView> {
     }
   }
 
-  // ルート表示データ取得
+  // ルート表示
   Future<void> _getRoutes() async {
     setState(() {
       _isLoading = true;
@@ -168,12 +165,32 @@ class _MapViewState extends State<MapView> {
       );
     });
 
+    if (points.isNotEmpty) {
+      final bounds = LatLngBounds(
+        northeast: LatLng(
+          points.map((point) => point.latitude).reduce((a, b) => a > b ? a : b),
+          points
+              .map((point) => point.longitude)
+              .reduce((a, b) => a > b ? a : b),
+        ),
+        southwest: LatLng(
+          points.map((point) => point.latitude).reduce((a, b) => a < b ? a : b),
+          points
+              .map((point) => point.longitude)
+              .reduce((a, b) => a < b ? a : b),
+        ),
+      );
+
+      final controller = await _controller.future;
+      await controller.animateCamera(CameraUpdate.newLatLngBounds(bounds, 40));
+    }
+
     setState(() {
       _isLoading = false;
     });
   }
 
-  // ルート表示
+  // ルート表示データ取得
   Future<List<LatLng>> _createPolyline() async {
     final pos = await _getCurrentLocation();
 
@@ -228,20 +245,27 @@ class _MapViewState extends State<MapView> {
             center = snapshot.data!;
           } else {
             center = widget.target!;
-            final point1 = center;
-            final point2 = currentPos;
+            final southwest = LatLng(
+              center.latitude < currentPos.latitude
+                  ? center.latitude
+                  : currentPos.latitude,
+              center.longitude < currentPos.longitude
+                  ? center.longitude
+                  : currentPos.longitude,
+            );
+            final northeast = LatLng(
+              center.latitude >= currentPos.latitude
+                  ? center.latitude
+                  : currentPos.latitude,
+              center.longitude >= currentPos.longitude
+                  ? center.longitude
+                  : currentPos.longitude,
+            );
 
-            if (point1.latitude >= point2.latitude) {
-              _bounds = LatLngBounds(
-                southwest: point2,
-                northeast: point1,
-              );
-            } else {
-              _bounds = LatLngBounds(
-                southwest: point1,
-                northeast: point2,
-              );
-            }
+            _bounds = LatLngBounds(
+              southwest: southwest,
+              northeast: northeast,
+            );
           }
         }
 
