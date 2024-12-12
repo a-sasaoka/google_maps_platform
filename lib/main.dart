@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:google_maps_platform/gen/assets.gen.dart';
+import 'package:google_maps_platform/gen/colors.gen.dart';
+import 'package:google_maps_platform/gen/fonts.gen.dart';
 import 'package:google_maps_platform/map_view.dart';
 import 'package:google_maps_platform/place_view.dart';
 
@@ -56,36 +59,60 @@ class _MyHomePageState extends State<MyHomePage> {
         child: SafeArea(
           child: Column(
             children: [
-              const Gap(16),
               Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (context) => const MapView(),
+                child: Column(
+                  children: [
+                    const Gap(16),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (context) => const MapView(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        '現在位置の地図表示',
                       ),
-                    );
-                  },
-                  child: const Text(
-                    '現在位置の地図表示',
-                  ),
-                ),
-              ),
-              const Gap(16),
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (context) => const PlaceView(),
+                    ),
+                    const Gap(16),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (context) => const PlaceView(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        '場所検索',
                       ),
-                    );
-                  },
-                  child: const Text(
-                    '場所検索',
-                  ),
+                    ),
+                    const Gap(16),
+                    const Text(
+                      'フォント',
+                      style: TextStyle(
+                        fontSize: 32,
+                        color: ColorName.red,
+                      ),
+                    ),
+                    const Text(
+                      'フォント',
+                      style: TextStyle(
+                        fontFamily: FontFamily.murecho,
+                        fontSize: 32,
+                        color: ColorName.red,
+                      ),
+                    ),
+                    const Gap(16),
+                    Image.asset(
+                      Assets.images.animalInu.path,
+                      width: 100,
+                      height: 100,
+                    ),
+                  ],
                 ),
               ),
             ],
