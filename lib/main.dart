@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_maps_platform/map_view.dart';
 import 'package:google_maps_platform/place_view.dart';
@@ -10,7 +11,7 @@ Future<void> main() async {
   await dotenv.load();
   log(dotenv.get('apiKey'));
 
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 /// アプリのベースになる Widget
