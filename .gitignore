@@ -48,3 +48,12 @@ app.*.map.json
 ios/Runner/Environment.swift
 android/secret.properties
 .env
+assets/fonts/Murecho-Black.ttf
+assets/fonts/Murecho-Bold.ttf
+assets/fonts/Murecho-ExtraBold.ttf
+assets/fonts/Murecho-ExtraLight.ttf
+assets/fonts/Murecho-Light.ttf
+assets/fonts/Murecho-Medium.ttf
+assets/fonts/Murecho-Regular.ttf
+assets/fonts/Murecho-SemiBold.ttf
+assets/fonts/Murecho-Thin.ttf
