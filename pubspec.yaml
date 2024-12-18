@@ -119,23 +119,43 @@ flutter:
   fonts:
     - family: Murecho
       fonts:
-        - asset: assets/fonts/Murecho-Thin.ttf
+        - asset: assets/fonts/Murecho/Murecho-Thin.ttf
           weight: 100
-        - asset: assets/fonts/Murecho-ExtraLight.ttf
+        - asset: assets/fonts/Murecho/Murecho-ExtraLight.ttf
           weight: 200
-        - asset: assets/fonts/Murecho-Light.ttf
+        - asset: assets/fonts/Murecho/Murecho-Light.ttf
           weight: 300
-        - asset: assets/fonts/Murecho-Regular.ttf
+        - asset: assets/fonts/Murecho/Murecho-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Murecho-Medium.ttf
+        - asset: assets/fonts/Murecho/Murecho-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Murecho-SemiBold.ttf
+        - asset: assets/fonts/Murecho/Murecho-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Murecho-Bold.ttf
+        - asset: assets/fonts/Murecho/Murecho-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Murecho-ExtraBold.ttf
+        - asset: assets/fonts/Murecho/Murecho-ExtraBold.ttf
           weight: 800
-        - asset: assets/fonts/Murecho-Black.ttf
+        - asset: assets/fonts/Murecho/Murecho-Black.ttf
+          weight: 900
+    - family: Noto_Sans_JP
+      fonts:
+        - asset: assets/fonts/Noto_Sans/NotoSansJP-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Noto_Sans/NotoSansJP-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Noto_Sans/NotoSansJP-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Noto_Sans/NotoSansJP-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Noto_Sans/NotoSansJP-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Noto_Sans/NotoSansJP-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Noto_Sans/NotoSansJP-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Noto_Sans/NotoSansJP-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Noto_Sans/NotoSansJP-Black.ttf
           weight: 900
   
   #

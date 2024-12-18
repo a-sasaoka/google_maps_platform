@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        fontFamily: FontFamily.notoSansJP,
       ),
       home: const MyHomePage(title: 'Google Maps Platform Demo Home Page'),
     );
@@ -92,17 +93,25 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     const Gap(16),
                     const Text(
-                      'フォント',
+                      'やまだ太郎',
                       style: TextStyle(
-                        fontSize: 32,
+                        fontSize: 48,
                         color: ColorName.red,
                       ),
                     ),
                     const Text(
-                      'フォント',
+                      'やまだ太郎',
+                      style: TextStyle(
+                        fontFamily: FontFamily.notoSansJP,
+                        fontSize: 48,
+                        color: ColorName.red,
+                      ),
+                    ),
+                    const Text(
+                      'やまだ太郎',
                       style: TextStyle(
                         fontFamily: FontFamily.murecho,
-                        fontSize: 32,
+                        fontSize: 48,
                         color: ColorName.red,
                       ),
                     ),
